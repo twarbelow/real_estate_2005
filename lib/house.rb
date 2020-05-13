@@ -28,7 +28,7 @@ class House
 
   def rooms_by_category #not working
     sorted = {}
-    rooms.each do |room|
+    rooms.map do |room|
       sorted[room.category] = room
     end
     return sorted
