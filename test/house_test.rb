@@ -12,7 +12,6 @@ class HouseTest < Minitest::Test
     @room_4 = Room.new(:basement, 30, '41')
   end
 
-
   def test_it_has_price
     @house = House.new("$400000", "123 sugar lane")
     assert_equal "$400000", @house.price
@@ -39,16 +38,14 @@ class HouseTest < Minitest::Test
   end
 
   def test_it_can_sort_rooms_by_area
-    skip
-    assert_equal [@room1, @room2, @room3, @room4], @house.sort_rooms_by_area
+    assert_equal [@room_1, @room_2, @room_3, @room_4], @house.sort_rooms_by_area
+  # -{:bedroom=>[#<Room:0xXXXXXX @category=:bedroom, @length=10, @width="13", @painted=false>, nil], :livingroom=>[#<Room:0xXXXXXX @category=:living_room, @length=25, @width="15", @painted=false>], :basement=>[#<Room:0xXXXXXX @category=:basement, @length=30, @width="41", @painted=false>]}
+  # +{}
   end
 
   def test_it_can_sort_rooms_by_category
-    skip
-    assert_equal ({:bedroom=>[@room_1, @room2], :livingroom => [@room_3], :basement => [@room_4]}), @house.rooms_by_category
+    assert_equal ({:bedroom => [@room_1, @room2], :livingroom => [@room_3], :basement => [@room_4]}), @house.rooms_by_category
+  # -{:bedroom=>[#<Room:0xXXXXXX @category=:bedroom, @length=10, @width="13", @painted=false>, nil], :livingroom=>[#<Room:0xXXXXXX @category=:living_room, @length=25, @width="15", @painted=false>], :basement=>[#<Room:0xXXXXXX @category=:basement, @length=30, @width="41", @painted=false>]}
+  # +{}
   end
 end
-
-
-# pry(main)> house.rooms_by_category
-# #=> {:bedroom=>[#<Room:0x00007fccd29b5720...>, #<Room:0x00007fccd2985f48...>], :living_room=> [#<Room:0x00007fccd383c2d0...>], :basement=> [#<Room:0x00007fccd297dc30...>]}

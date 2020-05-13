@@ -22,16 +22,15 @@ class House
   end
 
   def sort_rooms_by_area #not working
-    # @rooms.sort_by(&:area)
-    rooms.sort_by { |room| room.area }
+    return rooms.sort_by(&:area)
+    # rooms.sort_by { |room| room.area }
   end
 
-  def rooms_by_category
+  def rooms_by_category #not working
     sorted = {}
     rooms.each do |room|
       sorted[room.category] = room
     end
-    sorted
-
+    return sorted
   end
 end
